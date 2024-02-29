@@ -1,0 +1,45 @@
+# Author: Fedele Colosimo
+# CIS129 Module 3: Lab
+# Prints: Coffee Shop simulator
+# Coffee Shop Program
+# Asks the user for the number of coffee and muffins they are purchasing.
+# Calculates the subtotal, tax, and total of the purchase.
+# Displays a formatted receipt.
+
+# Function to calculate the total cost of items including tax
+def calculate_total(coffee_count, muffin_count, coffee_price=5, muffin_price=4, tax_rate=0.06):
+    # Calculate subtotal
+    subtotal = (coffee_count * coffee_price) + (muffin_count * muffin_price)
+    # Calculate tax
+    tax = subtotal * tax_rate
+    # Calculate total
+    total = subtotal + tax
+    return subtotal, tax, total
+
+# Main function
+def main():
+    print("***************************************")
+    print("My Coffee and Muffin Shop")
+    
+    # Ask for user input
+    coffee_count = int(input("Number of coffees bought?\n"))
+    muffin_count = int(input("Number of muffins bought?\n"))
+    
+    # Calculate totals
+    subtotal, tax, total = calculate_total(coffee_count, muffin_count)
+    
+    print("***************************************")
+    print("\nMy Coffee and Muffin Shop Receipt")
+    
+    # Display items and prices
+    print(f"{coffee_count} Coffee at $5 each: ${coffee_count * 5:.2f}")
+    print(f"{muffin_count} Muffins at $4 each: ${muffin_count * 4:.2f}")
+    print(f"6% tax: ${tax:.2f}")
+    print("---------")
+    print(f"Total: ${total:.2f}")
+    print("***************************************")
+    print("\nThank you for shopping with us!")
+
+# Entry point of the program
+if __name__ == "__main__":
+    main()
